@@ -14,6 +14,14 @@ App for code.fun.do
 
 ----------------------------------------------------------------
 
+## Documentation - 
+
+1. processFace.js: Takes an image, sends it to Microsoft Face API and returns the headPose from the response.
+
+
+-------------------------------------------------------------------------
+
+
 ## Possible Further Improvements :-
 
 1. Methods to measure attention level of a group (individual is straight-forward)

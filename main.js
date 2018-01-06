@@ -19,13 +19,13 @@
     var canvas = null;
     var photo = null;
     var para=null;
-    // var startButton = null;
+    var startButton = null;
 
     function startup() {
         video = document.getElementById('video');
         canvas = document.getElementById('canvas');
         photo = document.getElementById('photo');
-        // startButton = document.getElementById('startButton');
+        startButton = document.getElementById('startButton');
         para=document.getElementById('timestamp');
 
 
@@ -73,15 +73,14 @@
             }
         }, false);
 
-        // startButton.addEventListener('click', function(ev){
-        //     takePicture();
-        //     ev.preventDefault();
-        // }, false);
+        startButton.addEventListener('click', function(ev){
+            startObservation();
+            ev.preventDefault();
+        }, false);
 
         clearPhoto();
 
         setTimeout(takePicture,500 );
-        setInterval(takePicture,30000 );
 
     }
 
@@ -121,6 +120,11 @@
         }
     }
 
+    function startObservation() {
+        setInterval(takePicture,30000 );
+        var tempDate=new Date();
+        startTime=tempDate.getTime();
+    }
 
     // Set up our event listener to run the startup process
     // once loading is complete.

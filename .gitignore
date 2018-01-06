@@ -59,3 +59,9 @@ typings/
 
 #Custom Insertions
 .idea/
+.vscode
+*.jpg
+*.jpeg
+
+#useless
+detectFacesTry.html

@@ -132,6 +132,19 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage" value="ht
         <img id="sourceImage" width="400" />
     </div>
 </div>
+
+<script type="text/javascript" src="./processFace.js"></script>
+<script>
+    function myFunc(file) {
+        processFace(file, "PUT YR TIMESTAMP", function(obj) {
+            console.log(obj);
+        });
+    };
+</script>
+<h3>Upload Here</h3>
+<br>
+<input type='file' accept='image/*' onchange='myFunc(event)'><br>
+
 </body>
 </html>
 
