@@ -29,7 +29,7 @@
         var params = {
             "returnFaceId": "true",
             "returnFaceLandmarks": "false",
-            "returnFaceAttributes": "headPose",
+            "returnFaceAttributes": "headPose"
         };
 
         // Display the image.
@@ -49,7 +49,7 @@
             type: "POST",
 
             // Request body.
-            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+            data: '{"url": ' + '"' + sourceImageUrl + '"}'
         })
 
         .done(function(data) {
@@ -64,7 +64,7 @@
                 jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
             alert(errorString);
         });
-    };
+    }
 </script>
 
 <h1>Detect Faces:</h1>
