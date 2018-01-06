@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Attention Levels</title>
+        <script src="lib/plotly-latest.min.js"></script>
+        <style>
+            #tester {
+                width: 70em;
+                height: 35em;
+
+                position: absolute;
+                top:0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="tester"></div>
+        <script type="text/javascript" src="plot.js"></script>
+        <script>
+            var Xd = [1,2,3,4,5];
+            var Yd = [10,9,8,7,6];
+            var XLabel = "test";   
+            plot(Xd, Yd, XLabel);
+        </script>
+    </body>
+</html>
