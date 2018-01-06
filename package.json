@@ -1,0 +1,26 @@
+{
+  "name": "lookhere",
+  "version": "1.0.0",
+  "description": "-",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArpanMangal/LookHere.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArpanMangal/LookHere/issues"
+  },
+  "homepage": "https://github.com/ArpanMangal/LookHere#readme",
+  "dependencies": {
+    "pdfjs-dist": "^2.0.252"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "^2.0.252",
+    "webpack": "^3.10.0"
+  }
+}
