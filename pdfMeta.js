@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>PDF test display</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="node_modules/pdfjs-dist/build/pdf.js"></script>  
-    <style> 
-    #the-canvas {
-    border:1px solid black;
-    }  
-    </style>
-</head>
-<body>
-<div>
-  <button id="prev">Previous</button>
-  <button id="next">Next</button>
-  <button id="metadata">metadata</button>
-  &nbsp; &nbsp;
-  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
-
-<canvas id="the-canvas"></canvas>
-<script type="text/javascript">
-// If absolute URL from the remote server is provided, configure the CORS
-// header on that server.
 $(document).ready(function(){
 var url = './Lec01.pdf';
 
@@ -130,15 +105,7 @@ function getMeta(){
         var metadata= {topic: textContent.items[0].str, page: String(pageNum)};
         return metadata;
       });
-      return a;
     });
 }
 document.getElementById('metadata').addEventListener('click', getMeta);
 });
-
-
-</script>
-
-</body>
-</html>
-
