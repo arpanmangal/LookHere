@@ -33,28 +33,36 @@
 <!--<br>-->
 <!--<input type='file' accept='image/*' onchange='myFunc(event)'><br>-->
 
-<div>
+<div id="pdfDiv">
+    <canvas id="the-canvas"></canvas>
+    <br/>
     <button id="prev">Previous</button>
     <button id="next">Next</button>
     <button id="metadata">metadata</button>
     &nbsp; &nbsp;
     <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+
 </div>
+
+
+
 <div id="tester"></div>
-
-<canvas id="the-canvas"></canvas>
-
+<br/>
 <div class="contentArea">
     <div class="camera">
         <video id="video">Video stream not available.</video>
     </div>
-    <button id="startButton">Click Here To Start Observation</button>
     <canvas id="canvas"></canvas>
+    <br/>
     <div class="output">
         <img id="photo" alt="The screen capture will appear in this box." src="">
     </div>
+    <br/>
+    <button id="startButton">Click Here To Start Observation</button>
     <p id="timestamp"></p>
 </div>
+
+
 
 <script src=" https://npmcdn.com/pdfjs-dist/build/pdf.js"></script>
 <script type="text/javascript" src="static/lib/plotly-latest.min.js"></script>

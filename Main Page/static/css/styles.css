@@ -27,11 +27,11 @@
 }
 
 #startButton {
-    display:block;
+    /*display:block;*/
     position:relative;
     margin-left:auto;
     margin-right:auto;
-    bottom:32px;
+    /*bottom:32px;*/
     background-color: rgba(0, 150, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.7);
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -47,16 +47,17 @@
 }
 
 #tester {
-    width: 30em;
-    height: 30em;
+    width: 400px;
+    height: 300px;
 
-    position: relative;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    /*position: relative;*/
+    /*top:0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
 
     margin: auto;
+    /*float: left;*/
 }
 
 #wrapper {
@@ -78,3 +79,28 @@
     width:420px;
     display:table-cell;
 }
+
+#pdfDiv {
+    /*white-space: nowrap;*/
+    /*width: ;*/
+    /*height: 300px;*/
+    float: right;
+    /*!*display: inline-block;*!*/
+
+}
+
+#the-canvas {
+    width: 1200px;
+    height: auto;
+}
+
+div {
+    display: inline-block;
+    width: fit-content;
+}
+
+.contentArea {
+    float: left;
+    width: fit-content;
+}
+
