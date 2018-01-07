@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Look Here</title>
+    <link rel="stylesheet" href="static/css/styles.css" type="text/css" media="all">
+
+</head>
+<body>
+
+<!--<h1>Detect Faces:</h1>-->
+<!--Enter the URL to an image that includes a face or faces, then click the <strong>Analyze face</strong> button.-->
+<!--<input type='file' accept='image/*' onchange='openFile(event)'><br>-->
+<!--<br><br>-->
+<!--Image to analyze: <label for="inputImage">Input Image Here</label><input type="text" name="inputImage" id="inputImage"-->
+                                                                         <!--value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg"/>-->
+<!--<button onclick="processImage()">Analyze face</button>-->
+<!--<br><br>-->
+<!--<div id="wrapper">-->
+    <!--<div id="jsonOutput">-->
+        <!--Response:-->
+        <!--<br><br>-->
+        <!--<label for="responseTextArea">Text Area for Response???</label><textarea id="responseTextArea" class="UIInput"></textarea>-->
+    <!--</div>-->
+    <!--<div id="imageDiv">-->
+        <!--Source image:-->
+        <!--<br><br>-->
+        <!--<img id="sourceImage" width="400" src=""/>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<h3>Upload Here</h3>-->
+<!--<br>-->
+<!--<input type='file' accept='image/*' onchange='myFunc(event)'><br>-->
+
+<div>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+    <button id="metadata">metadata</button>
+    &nbsp; &nbsp;
+    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+</div>
+<div id="tester"></div>
+
+<canvas id="the-canvas"></canvas>
+
+<div class="contentArea">
+    <div class="camera">
+        <video id="video">Video stream not available.</video>
+    </div>
+    <button id="startButton">Click Here To Start Observation</button>
+    <canvas id="canvas"></canvas>
+    <div class="output">
+        <img id="photo" alt="The screen capture will appear in this box." src="">
+    </div>
+    <p id="timestamp"></p>
+</div>
+
+
+<script src=" https://npmcdn.com/pdfjs-dist/build/pdf.js"></script>
+<script type="text/javascript" src="static/lib/plotly-latest.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/processFace.js"></script>
+<script type="text/javascript" src="static/js/pdfMeta.js"></script>
+<script type="text/javascript" src="static/js/plot.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
+
+
+</body>
+</html>
