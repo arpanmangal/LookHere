@@ -1,5 +1,5 @@
 $(document).ready(function(){
-var url = './Lec01.pdf';
+var url = 'example/Lec01.pdf';
 
 // Disable workers to avoid yet another cross-origin issue (workers need
 // the URL of the script to be loaded, and dynamically loading a cross-origin
@@ -7,8 +7,8 @@ var url = './Lec01.pdf';
 // PDFJS.disableWorker = true;
 
 // The workerSrc property shall be specified.
-PDFJS.workerSrc = "node_modules/pdfjs-dist/build/pdf.worker.js";
-
+// PDFJS.workerSrc = "../lib/pdfjs-dist/build/pdf.worker.js";
+PDFJS.workerSrc = " https://npmcdn.com/pdfjs-dist/build/pdf.worker.js";
 var pdfDoc = null,
 pageNum = 1,
 pageRendering = false,
@@ -91,6 +91,7 @@ document.getElementById('next').addEventListener('click', onNextPage);
  * Asynchronously downloads PDF.
  */
 PDFJS.getDocument(url).then(function(pdfDoc_) {
+  console.log("Done");
   pdfDoc = pdfDoc_;
   document.getElementById('page_count').textContent = pdfDoc.numPages;
 
