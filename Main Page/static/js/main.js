@@ -46,6 +46,7 @@
                 audio: false
             },
             function(stream) {
+                console.log(stream);
                 if (navigator.mozGetUserMedia) {
                     video.mozSrcObject = stream;
                 } else {
@@ -161,8 +162,13 @@
         // image.id = "pic";
         // image.src = file;
         // console.log(image);
-        processFaces(file, getTimeStamp(), function(obj) {
+        processFaces(imag, getTimeStamp(), function(obj) {
             console.log(obj);
         });
+    }
+
+    function changeVideoSource(src) {
+        video.src=src;
+        video.play();
     }
 })();
