@@ -44,7 +44,7 @@ $(document).ready(function() {
     function startup() {
         video = document.getElementById('video');
         canvas = document.getElementById('canvas');
-        photo = document.getElementById('photo');
+        // photo = document.getElementById('photo');
         startButton = document.getElementById('startButton');
         para=document.getElementById('timestamp');
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
         context.fillRect(0, 0, canvas.width, canvas.height);
 
         var data = canvas.toDataURL('image/png');
-        photo.setAttribute('src', data);
+        // photo.setAttribute('src', data);
     }
 
     // Capture a photo by fetching the current contents of the video
@@ -131,7 +131,7 @@ $(document).ready(function() {
             context.drawImage(video, 0, 0, width, height);
 
             var data = canvas.toDataURL('image/png');
-            photo.setAttribute('src', data);
+            // photo.setAttribute('src', data);
 
             var clickMarker=new Date();
             para.innerHTML= (clickMarker.getTime() - startTime) / 1000 ;

@@ -69,6 +69,6 @@ function plot(Xdata, Ydata, Descrip) {
         }
     };
       
-    var TESTER = document.getElementById('tester');
+    var TESTER = document.getElementById('graph');
     Plotly.plot( TESTER, data, layout);
 }

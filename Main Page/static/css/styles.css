@@ -1,9 +1,31 @@
-#video {
-    border: 1px solid black;
-    box-shadow: 2px 2px 3px black;
-    width:320px;
-    height:240px;
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+
 }
+
+*{
+    border-radius: 5px;
+    margin:0;
+    padding: 0;
+}
+
+
+div {
+    display: inline-block;
+    width: fit-content;
+}
+
+#video {
+border: 1px solid black;
+box-shadow: 2px 2px 3px black;
+    width: 100%;
+    height: 100%;
+    /*padding: 0;*/
+    /*margin: 5px;*/
+}
+
 
 #photo {
     border: 1px solid black;
@@ -27,11 +49,9 @@
 }
 
 #startButton {
-    /*display:block;*/
     position:relative;
-    margin-left:auto;
-    margin-right:auto;
-    /*bottom:32px;*/
+    /*margin-left:auto;*/
+    /*margin-right:auto;*/
     background-color: rgba(0, 150, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.7);
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -43,22 +63,13 @@
 .contentArea {
     font-size: 16px;
     font-family: "Lucida Grande", "Arial", sans-serif;
-    width: 760px;
+    width: 35%;
+    height: auto;
+    /*padding: 0;*/
+    /*margin: 5px;*/
+    float: left;
 }
 
-#tester {
-    width: 400px;
-    height: 300px;
-
-    /*position: relative;*/
-    /*top:0;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-
-    margin: auto;
-    /*float: left;*/
-}
 
 #wrapper {
     width:1020px;
@@ -81,26 +92,30 @@
 }
 
 #pdfDiv {
-    /*white-space: nowrap;*/
-    /*width: ;*/
-    /*height: 300px;*/
+    width: 60%;
     float: right;
-    /*!*display: inline-block;*!*/
-
 }
 
 #the-canvas {
-    width: 1200px;
+    width: 100%;
     height: auto;
 }
 
-div {
-    display: inline-block;
-    width: fit-content;
+#graph{
+    width: 100%;
+    height: 100%;
 }
 
-.contentArea {
-    float: left;
-    width: fit-content;
+
+#containerGraph {
+    width: 38%;
+    height: 38%;
+    /*padding: 0;*/
+    /*margin: 5px;*/
+    /*float: left;*/
 }
 
+.camera{
+    width: 100%;
+    height: 100%;
+}
