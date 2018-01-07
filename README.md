@@ -6,7 +6,7 @@ App for code.fun.do
 
 ## TODO -
 
-1. Capture webcam images (running a pdf/video in parallel) and return image along with metadata (time, slide topic). 
+1. Capture web cam images (running a pdf/video in parallel) and return image along with metadata (time, slide topic).
 
 2. Send received images to microsoft face api, and write received info (along with image metadata) on head poses to a database.
 
