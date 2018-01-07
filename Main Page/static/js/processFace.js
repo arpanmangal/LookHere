@@ -25,7 +25,7 @@ function makeblob (dataURL) {
         return new Blob([uInt8Array], {type: contentType});
     }
 
-    function processImage(dataURL, timestamp, callback) {
+    function processImage(dataURL, timestamp, description,callback) {
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
@@ -111,7 +111,7 @@ function makeblob (dataURL) {
 
 
 
-    function processFaces(file, timestamp, callback) {
+    function processFaces(file, timestamp, description,callback) {
     // Use this function for getting the information of the face
     // Input: Image file && TimeStamp
     // Output: null
@@ -128,16 +128,16 @@ function makeblob (dataURL) {
     //                               console.log(obj); <= returned object
     //                          });
     // var input=file.src;
-    processImage(file, timestamp, callback);
+    processImage(file, timestamp,description, callback);
     return;
-    var input = file.target;
-    // console.log(input);
-    console.log(file);
-    var reader = new FileReader();
-    reader.onload = function(){
-        var dataURL = reader.result;
-        processImage(dataURL, timestamp, callback);
-    };
-    reader.readAsDataURL(input.files[0]);
-    // reader.readAsDataURL(input);
+    // var input = file.target;
+    // // console.log(input);
+    // console.log(file);
+    // var reader = new FileReader();
+    // reader.onload = function(){
+    //     var dataURL = reader.result;
+    //     processImage(dataURL, timestamp, callback);
+    // };
+    // reader.readAsDataURL(input.files[0]);
+    // // reader.readAsDataURL(input);
 }

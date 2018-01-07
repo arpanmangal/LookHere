@@ -1,4 +1,4 @@
-(function() {
+$(document).ready(function() {
     // The width and height of the captured photo. We will set the
     // width to the value defined here, but the height will be
     // calculated based on the aspect ratio of the input stream.
@@ -6,7 +6,7 @@
     var Xd = [1, 2, 3, 4, 5];
     var Yd = [1000000, 1000001, 1000002, 1000003, 1000004];
     var XLabel = "test";
-    plot(Xd, Yd, XLabel);
+    plot(Xd, Yd,XLabel,['a','b','c','d','e']);
 
     var width = 320;    // We will scale the photo width to this
     var height = 0;     // This will be computed based on the input stream
@@ -25,6 +25,21 @@
     var photo = null;
     var para=null;
     var startButton = null;
+
+
+// Disable workers to avoid yet another cross-origin issue (workers need
+// the URL of the script to be loaded, and dynamically loading a cross-origin
+// script does not work).
+// PDFJS.disableWorker = true;
+
+// The workerSrc property shall be specified.
+// PDFJS.workerSrc = "../lib/pdfjs-dist/build/pdf.worker.js";
+
+/**
+ * Get page info from document, resize canvas accordingly, and render page.
+ * @param num Page number.
+ */
+    
 
     function startup() {
         video = document.getElementById('video');
@@ -156,19 +171,25 @@
         reader.readAsDataURL(input.files[0]);
     }
     
+
     function passFace(file) {
         //var image=makeblob(file);
         // var image = new Image();
         // image.id = "pic";
         // image.src = file;
         // console.log(image);
-        processFaces(imag, getTimeStamp(), function(obj) {
+        getMeta().then(function(metaData){ 
+        description="Slide "+metaData.page+" ("+metaData.topic+") ";
+        console.log(description);
+        processFaces(file, getTimeStamp(), description,function(obj) {
             console.log(obj);
         });
+        });
+        
     }
 
     function changeVideoSource(src) {
         video.src=src;
         video.play();
     }
-})();
+});
