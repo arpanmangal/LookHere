@@ -2,17 +2,25 @@
 // Call it using:
 // plot(Xdata, Yd)
 
+// TODO:
+// 3 VALUES,
+// xRANGE
+
 console.log('hi');
 
 var XArray = [],
     YArray = [],
-    XLabel = "test",
+    XLabel = "Time (s)",
     DescripArray = [];
 
 
 var completeXArray = [],
     completeYArray = [],
     completeDescripArray = [];
+
+var Yavg; // for storing moving average
+
+var XmaxValue = -100;
 
 /* Example Usage:
   setInterval(function() {
@@ -26,9 +34,20 @@ function plot(Xdata, Ydata, Descrip) {
     XArray.push(Xdata);
     completeXArray.push(Xdata);
     if (XArray.length > 20) XArray.shift(); // remove first entry
+    if (XmaxValue < Xdata) XmaxValue = Xdata;
+    console.log(XmaxValue);
 
-    YArray.push(Ydata);
+    
     completeYArray.push(Ydata);
+    if (completeYArray.length >= 3) {
+      Yavg = completeYArray.slice(-3).reduce(function(a, b) {
+        return a + b;
+      }) / 3.0; // takes average of last three elements
+      YArray.push(Yavg);
+    } else {
+      YArray.push(Ydata);
+    }
+    
     if (YArray.length > 20) YArray.shift();
 
     DescripArray.push(Descrip);
@@ -56,7 +75,7 @@ function plot(Xdata, Ydata, Descrip) {
     var data = [trace];
 
     var layout = {
-        title: 'Time',
+        title: 'Variation in Gaze',
         showlegend: false,
         xaxis: {
           title: XLabel,
@@ -64,11 +83,15 @@ function plot(Xdata, Ydata, Descrip) {
           zeroline: false
         },
         yaxis: {
-          title: 'Attention',
+          title: 'Gaze',
           showline: false
         }
     };
       
     var TESTER = document.getElementById('tester');
-    Plotly.plot( TESTER, data, layout);
+    if (XArray.length > 5) Plotly.plot( TESTER, data, layout);
+}
+
+Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

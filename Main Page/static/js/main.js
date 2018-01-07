@@ -185,8 +185,11 @@ $(document).ready(function() {
                 console.log(obj);
                 // plotting obj
                 if (obj.data != null) {
-                    // plot the roll
-                    plot(obj.timestamp, obj.data.roll, obj.description);
+                    var roll = (obj.data.roll.map(-20, 20, -5, 5));
+                    var yaw = (obj.data.yaw.map(-30,30,-5,5));
+                    var atten = (roll + yaw) / 2.0;
+
+                    plot(obj.timestamp, atten, obj.description);
                 }
             });
         });
