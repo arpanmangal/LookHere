@@ -4,7 +4,7 @@
     // calculated based on the aspect ratio of the input stream.
 
     var Xd = [1, 2, 3, 4, 5];
-    var Yd = [10, 9, 8, 7, 6];
+    var Yd = [1000000, 1000001, 1000002, 1000003, 1000004];
     var XLabel = "test";
     plot(Xd, Yd, XLabel);
 

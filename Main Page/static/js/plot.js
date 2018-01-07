@@ -2,13 +2,13 @@
 // Call it using:
 // plot(Xdata, Yd)
 
-function plot(Xdata, Ydata, XLabel) {
+function plot(Xdata, Ydata, XLabel, Descrip) {
     var trace = {
         x: Xdata,
         y: Ydata,
         mode: 'markers',
         name: 'You',
-      //   text: ['United States', 'Canada'],
+        text: Descrip,//['United States', 'Canada'],
         marker: {
           color: 'rgb(164, 194, 244)',
           size: 12,

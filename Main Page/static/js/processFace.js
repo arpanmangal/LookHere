@@ -25,7 +25,7 @@ function makeblob (dataURL) {
         return new Blob([uInt8Array], {type: contentType});
     }
 
-function processImage(dataURL) {
+    function processImage(dataURL, timestamp, callback) {
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
@@ -79,22 +79,39 @@ function processImage(dataURL) {
         })
 
             .done(function(data) {
-                // Show formatted JSON on webpage.
-                console.log(JSON.stringify(data, null, 2));
-                //$("#responseTextArea").val(JSON.stringify(data, null, 2));
+                
+                var details;
+        
+                if (data == null || data.length == 0) details = null;
+                else {
+                    var faceAtt = data[0].faceAttributes;
+                    // Error handling
+                    if (faceAtt == null || !('headPose' in faceAtt)) {
+                        // we did not receive the required data
+                        details = null;
+                    } else {
+                        details = faceAtt.headPose;
+                    }
+                }
+                var obj = {
+                    timestamp: timestamp,
+                    data: details
+                }
+                callback(obj);
             })
 
             .fail(function(jqXHR, textStatus, errorThrown) {
-                // Display error message.
-                var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
-                errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
-                    jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
-                alert(errorString);
+                var obj = {
+                    timestamp: timestamp,
+                    data: null // change this to actual error message if you want err to be sent
+                }
+                callback(obj);
             });
     }
 
 
-function processFaces(file, timestamp, callback) {
+
+    function processFaces(file, timestamp, callback) {
     // Use this function for getting the information of the face
     // Input: Image file && TimeStamp
     // Output: null
