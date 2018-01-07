@@ -243,10 +243,11 @@
     }
 
     function passFace(file) {
-        var image = new Image();
-        image.id = "pic";
-        image.src = file;
-        console.log(image);
+        var image=makeblob(file);
+        // var image = new Image();
+        // image.id = "pic";
+        // image.src = file;
+        // console.log(image);
         processFaces(image, getTimeStamp(), function(obj) {
             console.log(obj);
         });

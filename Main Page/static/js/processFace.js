@@ -120,8 +120,8 @@ function processFaces(file, timestamp, callback) {
     // Usage: processFace(file, timestamp, function(obj) {
     //                               console.log(obj); <= returned object
     //                          });
-    var input=file.src;
-    // var input = file.target;
+    // var input=file.src;
+    var input = file.target;
     // console.log(input);
     console.log(file);
     var reader = new FileReader();
@@ -129,6 +129,6 @@ function processFaces(file, timestamp, callback) {
         var dataURL = reader.result;
         processImage(dataURL, timestamp, callback);
     };
-    // reader.readAsDataURL(input.files[0]);
-    reader.readAsDataURL(input);
-};
+    reader.readAsDataURL(input.files[0]);
+    // reader.readAsDataURL(input);
+}
