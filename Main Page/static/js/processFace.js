@@ -25,7 +25,7 @@ function makeblob (dataURL) {
         return new Blob([uInt8Array], {type: contentType});
     }
 
-    function processImage(dataURL, timestamp, description,callback) {
+    function processImage(dataURL, timestamp, description, callback) {
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
@@ -95,6 +95,7 @@ function makeblob (dataURL) {
                 }
                 var obj = {
                     timestamp: timestamp,
+                    description: description,
                     data: details
                 }
                 callback(obj);
@@ -103,6 +104,7 @@ function makeblob (dataURL) {
             .fail(function(jqXHR, textStatus, errorThrown) {
                 var obj = {
                     timestamp: timestamp,
+                    description: description,
                     data: null // change this to actual error message if you want err to be sent
                 }
                 callback(obj);
@@ -128,7 +130,7 @@ function makeblob (dataURL) {
     //                               console.log(obj); <= returned object
     //                          });
     // var input=file.src;
-    processImage(file, timestamp,description, callback);
+    processImage(file, timestamp, description, callback);
     return;
     // var input = file.target;
     // // console.log(input);

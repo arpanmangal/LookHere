@@ -3,10 +3,10 @@ $(document).ready(function() {
     // width to the value defined here, but the height will be
     // calculated based on the aspect ratio of the input stream.
 
-    var Xd = [1, 2, 3, 4, 5];
-    var Yd = [1000000, 1000001, 1000002, 1000003, 1000004];
-    var XLabel = "test";
-    plot(Xd, Yd,XLabel,['a','b','c','d','e']);
+    // var Xd = [1, 2, 3, 4, 5];
+    // var Yd = [1000000, 1000001, 1000002, 1000003, 1000004];
+    // var XLabel = "test";
+    // plot(Xd, Yd,XLabel,['a','b','c','d','e']);
 
     var width = 320;    // We will scale the photo width to this
     var height = 0;     // This will be computed based on the input stream
@@ -179,11 +179,16 @@ $(document).ready(function() {
         // image.src = file;
         // console.log(image);
         getMeta().then(function(metaData){ 
-        description="Slide "+metaData.page+" ("+metaData.topic+") ";
-        console.log(description);
-        processFaces(file, getTimeStamp(), description,function(obj) {
-            console.log(obj);
-        });
+            description="Slide "+metaData.page+" ("+metaData.topic+") ";
+            console.log(description);
+            processFaces(file, getTimeStamp(), description,function(obj) {
+                console.log(obj);
+                // plotting obj
+                if (obj.data != null) {
+                    // plot the roll
+                    plot(obj.timestamp, obj.data.roll, obj.description);
+                }
+            });
         });
         
     }
