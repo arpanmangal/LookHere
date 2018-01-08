@@ -6,11 +6,9 @@ App for code.fun.do
 
 ## TODO -
 
-1. Capture web cam images (running a pdf/video in parallel) and return image along with metadata (time, slide topic).
-
-2. Send received images to microsoft face api, and write received info (along with image metadata) on head poses to a database.
-
-3. Analyse this data, display results in a nice UI.
+1. UI improvements (add modal that loads in the beginning, describing the project and taking pdf path as input from user)
+2. Allow user to 'Finish Session', after which we can see graph for overall session and some statistics summarizing the attention levels 
+for entire session.
 
 ----------------------------------------------------------------
 
