@@ -114,5 +114,60 @@ function showResults() {
   // Make a div called 'results' in your html where you want to see the resultant graph
   // change the name if you want to call it something else
 
-  
+  var resultsYArray = [],
+      resultsXArray = [],
+      resultsDesArray = [];
+
+  for (let i = 3; i < completeYArray.length; i++) {
+    resultsXArray.push(completeXArray[i]);
+    resultsDesArray.push(completeDescripArray[i]);
+
+    var sum = completeYArray[i] + completeYArray[i - 1] + completeYArray[i - 2];
+    Yavg = sum / 3.0; // takes average of last three elements
+
+    Yvar = Math.abs((Yavg - completeYArray[i]));
+    resultsYArray.push(Yvar);
+  }
+
+  // plot the graph
+  var trace = {
+    x: completeXArray,
+    y: completeYArray,
+    mode: 'lines+markers',
+    // name: 'You',
+    text: completeDescripArray,//['United States', 'Canada'],
+    marker: {
+      color: 'rgb(164, 194, 244)',
+      size: 12,
+      line: {
+        color: 'white',
+        width: 0.5
+      }
+    },
+    type: 'scatter',
+    hoverinfo: 'text'
+  };
+
+  var data = [trace];
+
+  var layout = {
+      title: 'Variation in Gaze',
+      showlegend: false,
+      hovermode: 'closest',
+      xaxis: {
+        title: XLabel,
+        showgrid: false,
+        zeroline: false
+      },
+      yaxis: {
+        title: 'Variation',
+        showline: false,
+        autotick: true,
+        showTickLabels: false,
+        range: [0, 3]
+      }
+  };
+
+  var TESTER = document.getElementById('results');
+  Plotly.plot( TESTER, data, layout);
 }
