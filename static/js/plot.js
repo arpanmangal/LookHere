@@ -8,7 +8,7 @@
 // 1. remove scale values ===> ???
 // 2. hover-> remove 10.777777 ====> DONE
 // 3. implement variation graph   ====> DONE
-// 4. implement for multiple users
+// 4. implement for multiple users ====> DONE verification pending
 // 5. finish -> whole graph + descrip;
 
 console.log('hi');
@@ -107,4 +107,12 @@ function plot(Xdata, Ydata, Descrip) {
 
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
   return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+function showResults() {
+  // Use this function at the end to display all the results, like overall graph, data etc.
+  // Make a div called 'results' in your html where you want to see the resultant graph
+  // change the name if you want to call it something else
+
+  
 }

@@ -80,23 +80,10 @@ function makeblob (dataURL) {
 
             .done(function(data) {
                 
-                var details;
-        
-                if (data == null || data.length == 0) details = null;
-                else {
-                    var faceAtt = data[0].faceAttributes;
-                    // Error handling
-                    if (faceAtt == null || !('headPose' in faceAtt)) {
-                        // we did not receive the required data
-                        details = null;
-                    } else {
-                        details = faceAtt.headPose;
-                    }
-                }
                 var obj = {
                     timestamp: timestamp,
                     description: description,
-                    data: details
+                    data: data
                 }
                 callback(obj);
             })

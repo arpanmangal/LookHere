@@ -190,11 +190,33 @@
             console.log(description);
             processFaces(file, getTimeStamp(), description,function(obj) {
                 console.log(obj);
+
+                var data = obj.data,
+                    totalRoll = 0,
+                    totalYaw = 0,
+                    details = null;
+                
+                if (data == null || data.length == 0); // do nothing;
+                else {
+                    // calculate totalYaw and totalRoll in absolute values
+                    for (let i = 0; i < data.length; i++) {
+                        var faceAtt = data[i].faceAttributes;
+
+                        // Error handling
+                        if (faceAtt == null || !('headPose' in faceAtt)) {
+                            // we did not receive the required data
+                            // do nothing
+                        } else {
+                            details = faceAtt.headPose;
+                            totalRoll += Math.abs(details.roll.map(-20, 20, -5, 5));
+                            totalYaw += Math.abs(details.yaw.map(-20, 20, -5, 5));
+                        }
+                    }                    
+                }
+
                 // plotting obj
-                if (obj.data != null) {
-                    var roll = (obj.data.roll.map(-20, 20, -5, 5));
-                    var yaw = (obj.data.yaw.map(-30,30,-5,5));
-                    var atten = (Math.abs(roll) + Math.abs(yaw)) / 2.0;
+                if (details != null) {
+                    var atten = (totalRoll + totalYaw) / data.length;
 
                     plot(obj.timestamp, atten, obj.description);
                 }
