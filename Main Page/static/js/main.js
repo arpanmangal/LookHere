@@ -144,7 +144,7 @@ $(document).ready(function() {
     }
 
     function startObservation() {
-        setInterval(takePicture,2000 );
+        setInterval(takePicture,3000 );
         var tempDate=new Date();
         startTime=tempDate.getTime();
     }
@@ -187,7 +187,7 @@ $(document).ready(function() {
                 if (obj.data != null) {
                     var roll = (obj.data.roll.map(-20, 20, -5, 5));
                     var yaw = (obj.data.yaw.map(-30,30,-5,5));
-                    var atten = (roll + yaw) / 2.0;
+                    var atten = (Math.abs(roll) + Math.abs(yaw)) / 2.0;
 
                     plot(obj.timestamp, atten, obj.description);
                 }

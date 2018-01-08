@@ -3,8 +3,13 @@
 // plot(Xdata, Yd)
 
 // TODO:
-// 3 VALUES,
-// xRANGE
+// 3 VALUES,  ====> DONE
+// xRANGE   ====> DONE (Capped the size of array)
+// 1. remove scale values ===> ???
+// 2. hover-> remove 10.777777 ====> DONE
+// 3. implement variation graph   ====> DONE
+// 4. implement for multiple users
+// 5. finish -> whole graph + descrip;
 
 console.log('hi');
 
@@ -18,7 +23,8 @@ var completeXArray = [],
     completeYArray = [],
     completeDescripArray = [];
 
-var Yavg; // for storing moving average
+var Yavg, // for storing moving average
+    Yvar;
 
 var XmaxValue = -100;
 
@@ -43,9 +49,11 @@ function plot(Xdata, Ydata, Descrip) {
       Yavg = completeYArray.slice(-3).reduce(function(a, b) {
         return a + b;
       }) / 3.0; // takes average of last three elements
-      YArray.push(Yavg);
+
+      Yvar = Math.abs((Yavg - Ydata));
+      YArray.push(Yvar);
     } else {
-      YArray.push(Ydata);
+      XArray.shift(); // remove that data from it
     }
     
     if (YArray.length > 20) YArray.shift();
@@ -58,7 +66,7 @@ function plot(Xdata, Ydata, Descrip) {
     var trace = {
         x: XArray,
         y: YArray,
-        mode: 'markers',
+        mode: 'lines+markers',
         // name: 'You',
         text: DescripArray,//['United States', 'Canada'],
         marker: {
@@ -69,7 +77,8 @@ function plot(Xdata, Ydata, Descrip) {
             width: 0.5
           }
         },
-        type: 'scatter'
+        type: 'scatter',
+        hoverinfo: 'text'
     };
 
     var data = [trace];
@@ -77,14 +86,18 @@ function plot(Xdata, Ydata, Descrip) {
     var layout = {
         title: 'Variation in Gaze',
         showlegend: false,
+        hovermode: 'closest',
         xaxis: {
           title: XLabel,
           showgrid: false,
           zeroline: false
         },
         yaxis: {
-          title: 'Gaze',
-          showline: false
+          title: 'Variation',
+          showline: false,
+          autotick: true,
+          showTickLabels: false,
+          range: [0, 3]
         }
     };
       
