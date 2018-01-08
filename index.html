@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Look Here</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.css" type="text/css" media="all">
+</head>
+<body>
+
+<div class="modal fade in" id="myModalHorizontal"  role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <h4 class="modal-title">Project Demo</h4>
+            <br>
+            <input type="file" class="form-control"
+                   id="inputFile" placeholder="file"/>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="startSession"
+                        data-dismiss="modal">
+                    Start Session
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div id="pdfDiv">
+    <canvas id="the-canvas"></canvas>
+    <br/>
+    <a href="#" id="prev" class="previous round">&#8249</a>
+    <a href="#" id="next" class="next round">&#8250;</a>
+    &nbsp; &nbsp;
+    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+
+</div>
+
+
+<div id="containerGraph">
+    <div id="graph"></div>
+</div>
+
+<br/>
+<div class="contentArea">
+    <div class="camera">
+        <video id="video">Video stream not available.</video>
+    </div>
+    <canvas id="canvas"></canvas>
+    <br/>
+    <br/>
+    <button id="startButton">Click Here To Start Observation</button>
+    <p id="timestamp"></p>
+</div>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"> </script>
+<script type="text/javascript" src=" https://npmcdn.com/pdfjs-dist/build/pdf.js"></script>
+<script type="text/javascript" src="static/lib/plotly-latest.min.js"></script>
+<script type="text/javascript" src="static/js/processFace.js"></script>
+<script type="text/javascript" src="static/js/pdfMeta.js"></script>
+<script type="text/javascript" src="static/js/plot.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#myModalHorizontal').modal('show');
+    });
+</script>
+
+</body>
+</html>
