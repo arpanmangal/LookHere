@@ -226,6 +226,12 @@
     }
 
     function changeVideoSource(src) {
-        video.src=src;
-        video.play();
+        pdfDiv=document.getElementById('pdfDiv');
+        pdfDiv.innerHTML='<div class="camera">' +
+            '<video id="video2" class="videoFeed" src="'+src+'" autoplay="autoplay" controls="controls">Video stream not available.</video>' +
+            '</div>';
+        // video.src=src;
+        // video.play();
+        // vid=document.getElementById('video2');
+        // vid.play();
     }
