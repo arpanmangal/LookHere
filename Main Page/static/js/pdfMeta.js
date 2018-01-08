@@ -98,11 +98,5 @@ function onNextPage() {
 }
 // document.getElementById('next').addEventListener('click', onNextPage);
 
-/**
- * Asynchronously downloads PDF.
- */
-
-// document.getElementById('metadata').addEventListener('click', getMeta);
-
 
 

@@ -144,7 +144,7 @@ $(document).ready(function() {
     }
 
     function startObservation() {
-        setInterval(takePicture,10000 );
+        setInterval(takePicture,2000 );
         var tempDate=new Date();
         startTime=tempDate.getTime();
     }
