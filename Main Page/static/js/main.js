@@ -1,4 +1,3 @@
-$(document).ready(function() {
     // The width and height of the captured photo. We will set the
     // width to the value defined here, but the height will be
     // calculated based on the aspect ratio of the input stream.
@@ -7,7 +6,6 @@ $(document).ready(function() {
     // var Yd = [1000000, 1000001, 1000002, 1000003, 1000004];
     // var XLabel = "test";
     // plot(Xd, Yd,XLabel,['a','b','c','d','e']);
-
     var width = 320;    // We will scale the photo width to this
     var height = 0;     // This will be computed based on the input stream
     var startMarker = new Date();
@@ -156,7 +154,7 @@ $(document).ready(function() {
 
     // Set up our event listener to run the startup process
     // once loading is complete.
-    window.addEventListener('load', startup, false);
+    document.getElementById("startSession").addEventListener('click', startup, false);
 
     // Functions from detectFaces.html
     
@@ -200,4 +198,3 @@ $(document).ready(function() {
         video.src=src;
         video.play();
     }
-});

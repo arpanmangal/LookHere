@@ -1,4 +1,5 @@
-var pdfDoc = null,
+
+$('#startSession').click(function(){
 pageNum = 1,
 pageRendering = false,
 pageNumPending = null,
@@ -98,5 +99,5 @@ function onNextPage() {
 }
 // document.getElementById('next').addEventListener('click', onNextPage);
 
-
+})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
 
