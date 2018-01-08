@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="static/css/styles.css" type="text/css" media="all">
 </head>
 <body>
-
 <div class="modal fade in" id="myModalHorizontal"  role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div id="dialogBox" class="modal-dialog">
+        <div id="contenting" class="modal-content">
             <h4 class="modal-title">Project Demo</h4>
             <br>
+            <label for="inputFile">Select Pdf File to view</label>
             <input type="file" class="form-control"
                    id="inputFile" placeholder="file"/>
             <div class="modal-footer">
@@ -22,12 +22,31 @@
                     Start Session
                 </button>
             </div>
-
         </div>
-
     </div>
 </div>
 
+<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+<!--<div id="myModalHorizontal" class="modal fade in" role="dialog">-->
+    <!--<div class="modal-dialog">-->
+
+        <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <!--<h4 class="modal-title">Modal Header</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<p>Some text in the modal.</p>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button id="startSession" type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
 
 
 <div id="pdfDiv">

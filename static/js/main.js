@@ -168,7 +168,16 @@
         };
         reader.readAsDataURL(input.files[0]);
     }
-    
+
+    function getMeta(){
+        //returns a promise to return topic and pageNum
+        return pdfDoc.getPage(pageNum).then(function(page) {
+            return page.getTextContent().then(function(textContent) {
+                //alert( "Topic: "+textContent.items[0].str+", Page: "+ String(pageNum))
+                return {topic: textContent.items[0].str, page: String(pageNum)};
+            });
+        });
+    }
 
     function passFace(file) {
         //var image=makeblob(file);

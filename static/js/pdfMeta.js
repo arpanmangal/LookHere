@@ -1,11 +1,13 @@
+var pdfDoc;
 
 $('#startSession').click(function(){
-pageNum = 1,
-pageRendering = false,
-pageNumPending = null,
-scale = 0.8,
-canvas = document.getElementById('the-canvas'),
-ctx = canvas.getContext('2d');
+pageNum = 1;
+pageRendering = false;
+pageNumPending = null;
+// scale = 0.8,
+scale = 1;
+canvas2 = document.getElementById('the-canvas');
+ctx = canvas2.getContext('2d');
 
 var url = 'example/Lec01.pdf';
 PDFJS.workerSrc = " https://npmcdn.com/pdfjs-dist/build/pdf.worker.js";
@@ -23,26 +25,18 @@ document.getElementById('prev').addEventListener('click', onPrevPage);
 document.getElementById('next').addEventListener('click', onNextPage);
 
     
-function getMeta(){
-    //returns a promise to return topic and pageNum
-    return pdfDoc.getPage(pageNum).then(function(page) {
-        return page.getTextContent().then(function(textContent) {
-        //alert( "Topic: "+textContent.items[0].str+", Page: "+ String(pageNum))
-        var metadata= {topic: textContent.items[0].str, page: String(pageNum)};
-        return metadata;
-      });
-    });
-};
 
-function renderPage(num) {
+    function renderPage(num) {
 pageRendering = true;
 // Using promise to fetch the page
 pdfDoc.getPage(num).then(function(page) {
 var viewport = page.getViewport(scale);
-canvas.height = viewport.height;
-canvas.width = viewport.width;
+    canvas2.height = viewport.height;
+    canvas2.width = viewport.width;
+    console.log(canvas2.height);
+    console.log(canvas2.width);
 
-// Render PDF page into canvas context
+// Render PDF page into canvas2 context
 var renderContext = {
     canvasContext: ctx,
     viewport: viewport
