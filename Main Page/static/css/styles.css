@@ -1,7 +1,7 @@
 html, body{
     width: 100%;
     height: 100%;
-    background-color:  #222;
+    background-color:  lightslategray;
 
 }
 
@@ -113,6 +113,14 @@ box-shadow: 2px 2px 3px black;
     /*padding: 0;*/
     /*margin: 5px;*/
     /*float: left;*/
+}
+
+#myModalHorizontal {
+    background: #f3fafd;
+    position:relative;
+    height: 100%;
+    margin:0 auto;
+    opacity: 1;
 }
 
 .camera{
