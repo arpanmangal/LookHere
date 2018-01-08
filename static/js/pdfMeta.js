@@ -11,9 +11,39 @@ ctx = canvas2.getContext('2d');
 
 var url = 'example/Lec01.pdf';
 PDFJS.workerSrc = " https://npmcdn.com/pdfjs-dist/build/pdf.worker.js";
+var files=document.getElementById('inputFile').files;
+var pdfFile=files[0];
+console.log(files);
+console.log(pdfFile);
 
+function readFileAsArrayBuffer(file, success, error) {
+    var fr = new FileReader();
+    fr.addEventListener('error', error, false);
+    if (fr.readAsBinaryString) {
+        fr.addEventListener('load', function () {
+            var string = this.resultString != null ? this.resultString : this.result;
+            var result = new Uint8Array(string.length);
+            for (var i = 0; i < string.length; i++) {
+                result[i] = string.charCodeAt(i);
+            }
+            success(result.buffer);
+        }, false);
+        return fr.readAsBinaryString(file);
+    } else {
+        fr.addEventListener('load', function () {
+            success(this.result);
+        }, false);
+        return fr.readAsArrayBuffer(file);
+    }
+}
 
-PDFJS.getDocument(url).then(function(pdfDoc_) {
+readFileAsArrayBuffer(pdfFile, function(data) {
+    var pdfData = new Uint8Array(data);
+    var docInitParams = {data: pdfData};
+    //output.value = JSON.stringify(array, null, '  ');
+    // window.setTimeout(ReadFile, 1000);
+    
+    PDFJS.getDocument(docInitParams).then(function(pdfDoc_) {
     console.log("Done");
     pdfDoc = pdfDoc_;
     document.getElementById('page_count').textContent = pdfDoc.numPages;
@@ -21,6 +51,12 @@ PDFJS.getDocument(url).then(function(pdfDoc_) {
     // Initial/first page rendering
     renderPage(pageNum);
     });
+
+}, function (e) {
+    console.error(e);
+});
+
+
 document.getElementById('prev').addEventListener('click', onPrevPage);
 document.getElementById('next').addEventListener('click', onNextPage);
 
