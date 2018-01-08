@@ -14,11 +14,9 @@
             <h4 class="modal-title">Project Demo</h4>
             <br>
             <label for="inputFile">Select Pdf File to view</label>
-            <input type="file" class="form-control"
-                   id="inputFile" placeholder="file"/>
+            <input type="file" class="form-control" id="inputFile" placeholder="file"/>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" id="startSession"
-                        data-dismiss="modal">
+                <button type="button" class="btn btn-success" id="startSession" data-dismiss="modal">
                     Start Session
                 </button>
             </div>
@@ -26,56 +24,43 @@
     </div>
 </div>
 
-<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
 
-<!--<div id="myModalHorizontal" class="modal fade in" role="dialog">-->
-    <!--<div class="modal-dialog">-->
+<div id="wholeContainer" class="container">
+    <div class="row">
+        <div class="col-md-4 customCol">
+            <div id="content2">
+                <div id="containerGraph">
+                    <div id="graph"></div>
+                </div>
 
-        <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-        <!--<div class="modal-content">-->
-            <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <!--<h4 class="modal-title">Modal Header</h4>-->
-            <!--</div>-->
-            <!--<div class="modal-body">-->
-                <!--<p>Some text in the modal.</p>-->
-            <!--</div>-->
-            <!--<div class="modal-footer">-->
-                <!--<button id="startSession" type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-            <!--</div>-->
-        <!--</div>-->
+                <br/>
+                <div class="contentArea">
+                    <div class="camera">
+                        <video id="video">Video stream not available.</video>
+                    </div>
+                    <canvas id="canvas"></canvas>
+                    <br/>
+                    <br/>
+                    <button type="button" class="btn btn-success" id="startButton">Click Here To Start Observation</button>
+                    <button type="button" class="btn btn-danger" id="stopSession" >Click Here To Stop Observation</button>
 
-    <!--</div>-->
-<!--</div>-->
+                    <p id="timestamp"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 customCol">
+            <div id="pdfDiv">
+                <canvas id="the-canvas"></canvas>
+                <br/>
+                <a href="#" id="prev" class="previous round">&#8249</a>
+                <a href="#" id="next" class="next round">&#8250;</a>
+                &nbsp; &nbsp;
+                <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
 
-
-<div id="pdfDiv">
-    <canvas id="the-canvas"></canvas>
-    <br/>
-    <a href="#" id="prev" class="previous round">&#8249</a>
-    <a href="#" id="next" class="next round">&#8250;</a>
-    &nbsp; &nbsp;
-    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-
-</div>
-
-
-<div id="containerGraph">
-    <div id="graph"></div>
-</div>
-
-<br/>
-<div class="contentArea">
-    <div class="camera">
-        <video id="video">Video stream not available.</video>
+            </div>
+        </div>
     </div>
-    <canvas id="canvas"></canvas>
-    <br/>
-    <br/>
-    <button id="startButton">Click Here To Start Observation</button>
-    <p id="timestamp"></p>
 </div>
-
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
