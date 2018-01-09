@@ -34,3 +34,5 @@ for entire session.
 2. Upload file in .pdf format (Change if not so)
 
 3. Wait for graph to load, as it takes some time to collect initial data and load the graph
+
+4. Works for multiple faces i.e. for class.
