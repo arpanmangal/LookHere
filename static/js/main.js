@@ -155,7 +155,7 @@
     // Set up our event listener to run the startup process
     // once loading is complete.
     document.getElementById("startSession").addEventListener('click', startup, false);
-
+    document.getElementById("stopSession").addEventListener('click',showResults,false)
     // Functions from detectFaces.html
     
     function openFile(file) {

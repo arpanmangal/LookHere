@@ -170,4 +170,6 @@ function showResults() {
 
   var TESTER = document.getElementById('results');
   Plotly.plot( TESTER, data, layout);
+
+  document.getElementById('myModalHorizontal2').modal('show');
 }

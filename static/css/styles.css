@@ -174,8 +174,40 @@ span{
     text-align: center;
 
 }
+#myModalHorizontal2 {
+    background: #f3fafd;
+    position:relative;
+    height: 100%;
+    width: 100%;
+    /*margin:0 auto;*/
+    align-content: center;
+    text-align: center;
 
+    opacity: 1;
+}
+
+
+#dialogBox2 {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    align-content: center;
+    text-align: center;
+
+}
 #contenting {
+    margin-top: 20%;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    align-content: center;
+    text-align: center;
+
+}
+#contenting2 {
     margin-top: 20%;
     padding: 10px;
     width: auto;
