@@ -226,8 +226,6 @@ var requestAPI = false;
             }
             else{
                 console.log("OK");
-                metaData.page='';
-                metaData.topic=''
             }
             if (mode=='pdf') description="Slide "+metaData.page+" ("+metaData.topic+") ";
             else description=getCleanTimeStamp();
