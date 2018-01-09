@@ -25,3 +25,12 @@ for entire session.
 1. Methods to measure attention level of a group (individual is straight-forward)
 
 2. **How the app will actually be run in practice, what the dashboard will be like,how a user can view results of previous presentations/videos.**
+
+
+## Things to write in readme to be submitted :-
+
+1. Works on Mozilla Firefox presently. Issues with Google Chrome. (Edge ??)
+
+2. Upload file in .pdf format (Change if not so)
+
+3. Wait for graph to load, as it takes some time to collect initial data and load the graph
