@@ -43,7 +43,7 @@
         video = document.getElementById('video');
         canvas = document.getElementById('canvas');
         // photo = document.getElementById('photo');
-        startButton = document.getElementById('startButton');
+        // startButton = document.getElementById('startButton');
         para=document.getElementById('timestamp');
 
 
@@ -92,10 +92,10 @@
             }
         }, false);
 
-        startButton.addEventListener('click', function(ev){
+        // startButton.addEventListener('click', function(ev){
             startObservation();
-            ev.preventDefault();
-        }, false);
+            // ev.preventDefault();
+        // }, false);
 
         clearPhoto();
 
@@ -155,7 +155,7 @@
     // Set up our event listener to run the startup process
     // once loading is complete.
     document.getElementById("startSession").addEventListener('click', startup, false);
-
+    document.getElementById("stopSession").addEventListener('click',showResults,false)
     // Functions from detectFaces.html
     
     function openFile(file) {
