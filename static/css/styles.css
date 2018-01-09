@@ -272,7 +272,3 @@ span{
 #pdfDiv{
     height: 100%;
 }
-
-.modal{
-    z-index: 999;
-}
