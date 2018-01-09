@@ -31,7 +31,7 @@ function makeblob (dataURL) {
         // **********************************************
         console.log("Sending image to face api");
         // Replace the subscriptionKey string value with your valid subscription key.
-        var subscriptionKey = "4a8cf0860f0340cba3ec2b2aa7b4cab5";
+        var subscriptionKey = "ec21e11600704233a7cdb295a37249b6";
 
         // Replace or verify the region.
         //

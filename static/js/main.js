@@ -39,15 +39,15 @@
  * @param num Page number.
  */
     
-var data;
+var requestAPI = false;
     function startup() {
-        data=true;
+        requestAPI=true;
     $('#wholeContainer').show();
     video = document.getElementById('video');
         canvas = document.getElementById('canvas');
         // photo = document.getElementById('photo');
         // startButton = document.getElementById('startButton');
-        para=document.getElementById('timestamp');
+        // para=document.getElementById('timestamp');
 
 
         //alert("hi");
@@ -134,6 +134,8 @@ var data;
     // other changes before drawing it.
 
     function takePicture() {
+        if (requestAPI === false) return;
+
         var context = canvas.getContext('2d');
         if (width && height) {
             canvas.width = width;
@@ -144,8 +146,8 @@ var data;
             // photo.setAttribute('src', data);
 
             var clickMarker=new Date();
-            para.innerHTML= (clickMarker.getTime() - startTime) / 1000 ;
-            para.append(" seconds");
+            // para.innerHTML= (clickMarker.getTime() - startTime) / 1000 ;
+            // para.append(" seconds");
 
             passFace(data);
         } else {
@@ -154,7 +156,7 @@ var data;
     }
 
     function startObservation() {
-        setInterval(takePicture,3000 );
+        setInterval(takePicture, 1500);
         var tempDate=new Date();
         startTime=tempDate.getTime();
     }
@@ -172,7 +174,7 @@ var data;
     // Functions from detectFaces.html
 
     function dismissFunction() {
-        data=true;
+        requestAPI=true;
     }
 
     function openFile(file) {
