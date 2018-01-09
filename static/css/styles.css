@@ -264,3 +264,12 @@ span{
 span{
     color: #000000;
 }
+
+.row{
+    height: 100%;
+}
+
+#pdfDiv{
+    height: 100%;
+}
+

@@ -104,7 +104,11 @@ var data;
         clearPhoto();
 
         setTimeout(takePicture,1000 );
-
+        if (mode=='video'){
+            // console.log( $('#videosrc').val());
+            changeVideoSource($('#videosrc').val());
+            // return;
+        }
     }
 
     // Fill the photo with an indication that none has been
@@ -180,7 +184,7 @@ var data;
 
     function getMeta(){
         //returns a promise to return topic and pageNum
-        if(mode=='video') return;
+        if(mode=='video') return ;
         return pdfDoc.getPage(pageNum).then(function(page) {
             return page.getTextContent().then(function(textContent) {
                 //alert( "Topic: "+textContent.items[0].str+", Page: "+ String(pageNum))
@@ -195,7 +199,11 @@ var data;
         // image.id = "pic";
         // image.src = file;
         // console.log(image);
-        getMeta().then(function(metaData){ 
+        getMeta().then(function(metaData){
+            if(metaData==undefined){
+                metaData.page='Undefined';
+                metaData.topic='Undefined'
+            }
             description="Slide "+metaData.page+" ("+metaData.topic+") ";
             console.log(description);
             processFaces(file, getTimeStamp(), description,function(obj) {
@@ -237,9 +245,16 @@ var data;
 
     function changeVideoSource(src) {
         pdfDiv=document.getElementById('pdfDiv');
-        pdfDiv.innerHTML='<div class="camera">' +
-            '<video id="video2" class="videoFeed" src="'+src+'" autoplay="autoplay" controls="controls">Video stream not available.</video>' +
-            '</div>';
+        // pdfDiv.innerHTML='<div class="camera">' +
+        //     '<video id="video2" class="videoFeed" src="'+src+'" autoplay="autoplay" controls="controls">Video stream not available.</video>' +
+        //     '</div>';
+
+        // pdfDiv.innerHTML='<div class="camera">' +
+        //     '<iframe id="video2" class="videoFeed" src="'+src+'" autoplay="autoplay" controls="controls">Video stream not available.</iframe>' +
+        //     '</div>';
+        pdfDiv.innerHTML=src;
+        $('iframe').height('100%');
+        $('iframe').width("100%");
         // video.src=src;
         // video.play();
         // vid=document.getElementById('video2');
