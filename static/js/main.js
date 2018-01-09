@@ -184,7 +184,11 @@ var data;
 
     function getMeta(){
         //returns a promise to return topic and pageNum
-        if(mode=='video') return ;
+        if(mode=='video') {
+            return new Promise(()=> {
+                return {};
+            }) ;
+        }
         return pdfDoc.getPage(pageNum).then(function(page) {
             return page.getTextContent().then(function(textContent) {
                 //alert( "Topic: "+textContent.items[0].str+", Page: "+ String(pageNum))
@@ -202,7 +206,13 @@ var data;
         getMeta().then(function(metaData){
             if(metaData==undefined){
                 metaData.page='Undefined';
-                metaData.topic='Undefined'
+                metaData.topic='Undefined';
+                console.log("Not OK");
+            }
+            else{
+                console.log("OK");
+                metaData.page='';
+                metaData.topic=''
             }
             description="Slide "+metaData.page+" ("+metaData.topic+") ";
             console.log(description);
