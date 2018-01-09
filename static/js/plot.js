@@ -10,6 +10,7 @@
 // 3. implement variation graph   ====> DONE
 // 4. implement for multiple users ====> DONE verification pending
 // 5. finish -> whole graph + descrip;
+// 6. cap y, show bar graph, change range to 5
 
 console.log('hi');
 
@@ -35,6 +36,9 @@ var XmaxValue = -100;
 */
 
 function plot(Xdata, Ydata, Descrip) {
+    // cap Ydata
+    if (Ydata > 5) Ydata = 5;
+
     console.log(Xdata, Ydata, Descrip);
     // Usage: pass a SINGLE Xdata, Ydata, Descrip
     XArray.push(Xdata);
@@ -97,7 +101,7 @@ function plot(Xdata, Ydata, Descrip) {
           showline: false,
           autotick: true,
           showTickLabels: false,
-          range: [0, 3]
+          range: [0, 5]
         }
     };
       
@@ -164,10 +168,10 @@ function showResults() {
         showline: false,
         autotick: true,
         showTickLabels: false,
-        range: [0, 3]
+        range: [0, 5]
       }
   };
 
-  var TESTER = document.getElementById('results');
-  Plotly.plot( TESTER, data, layout);
+  var RESULTS = document.getElementById('results');
+  Plotly.plot( RESULTS, data, layout);
 }
