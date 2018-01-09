@@ -6,9 +6,8 @@ App for code.fun.do
 
 ## TODO -
 
-1. UI improvements (add modal that loads in the beginning, describing the project and taking pdf path as input from user)
-2. Allow user to 'Finish Session', after which we can see graph for overall session and some statistics summarizing the attention levels 
-for entire session.
+1. UI improvements (~~add modal that loads in the beginning, describing the project and taking pdf path as input from user~~)
+2. ~~Allow user to 'Finish Session', after which we can see graph for overall session and some statistics summarizing the attention levels for entire session.~~
 
 ----------------------------------------------------------------
 
@@ -26,6 +25,7 @@ for entire session.
 
 2. **How the app will actually be run in practice, what the dashboard will be like,how a user can view results of previous presentations/videos.**
 
+-----------------------------------------------------------------------------------------
 
 ## Things to write in readme to be submitted :-
 
