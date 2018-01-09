@@ -100,7 +100,7 @@ function plot(Xdata, Ydata, Descrip) {
           title: XLabel,
           showgrid: false,
           zeroline: false,
-          range: [0, 2*XmaxValue]
+          range: [XmaxValue-100, XmaxValue]
         },
         yaxis: {
           title: 'Variation',
@@ -112,7 +112,7 @@ function plot(Xdata, Ydata, Descrip) {
     };
       
     var TESTER = document.getElementById('graph');
-    if (XArray.length > 5) Plotly.plot( TESTER, data, layout);
+    if (XArray.length > 5) Plotly.newPlot( TESTER, data, layout);
 }
 
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
@@ -199,7 +199,7 @@ data=false;
   };
 
   var TESTER = document.getElementById('results');
-  Plotly.plot( TESTER, data, layout);
+  Plotly.newPlot( TESTER, data, layout);
 
 
   // plot the bar graph
