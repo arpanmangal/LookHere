@@ -9,8 +9,9 @@
 // 2. hover-> remove 10.777777 ====> DONE
 // 3. implement variation graph   ====> DONE
 // 4. implement for multiple users ====> DONE verification pending
-// 5. finish -> whole graph + descrip;
-// 6. cap y, show bar graph, change range to 5
+// 5. finish -> whole graph + descrip; ===> done
+// 6. cap y, show bar graph of average attention per slide, change range to 5 ===> Done, debugging left
+// 7. Do something about Xrange
 
 console.log('hi');
 
@@ -29,6 +30,7 @@ var Yavg, // for storing moving average
 
 var XmaxValue = -100;
 
+
 /* Example Usage:
   setInterval(function() {
                 plot(Math.random() * 10, Math.random() * 100, String((Math.random() * 50)));
@@ -38,6 +40,12 @@ var XmaxValue = -100;
 function plot(Xdata, Ydata, Descrip) {
     // cap Ydata
     if (Ydata > 5) Ydata = 5;
+
+
+    DescripArray.push(Descrip);
+    completeDescripArray.push(Descrip);
+    if (DescripArray.length > 20) DescripArray.shift();
+
 
     console.log(Xdata, Ydata, Descrip);
     // Usage: pass a SINGLE Xdata, Ydata, Descrip
@@ -58,15 +66,12 @@ function plot(Xdata, Ydata, Descrip) {
       YArray.push(Yvar);
     } else {
       XArray.shift(); // remove that data from it
+      DescripArray.shift();
     }
     
     if (YArray.length > 20) YArray.shift();
 
-    DescripArray.push(Descrip);
-    completeDescripArray.push(Descrip);
-    if (DescripArray.length > 20) DescripArray.shift();
-
-
+    
     var trace = {
         x: XArray,
         y: YArray,
@@ -87,21 +92,22 @@ function plot(Xdata, Ydata, Descrip) {
 
     var data = [trace];
 
-    var layout = {
+    let layout = {
         title: 'Variation in Gaze',
         showlegend: false,
         hovermode: 'closest',
         xaxis: {
           title: XLabel,
           showgrid: false,
-          zeroline: false
+          zeroline: false,
+          range: [0, 2*XmaxValue]
         },
         yaxis: {
           title: 'Variation',
           showline: false,
           autotick: true,
           showTickLabels: false,
-          range: [0, 5]
+          range: [0, 5.2]
         }
     };
       
@@ -132,6 +138,26 @@ function showResults() {
     Yvar = Math.abs((Yavg - completeYArray[i]));
     resultsYArray.push(Yvar);
   }
+
+
+  // variables to store information about slides, 6 is the slide no.
+  var slides = [],
+  totalCaptures = [],
+  avgAttention = [];
+
+  for (let i = 0; i < resultsDesArray.length; i++) {
+    let slideNo = parseInt(resultsDesArray[i].charAt(6));
+    while (slides.length < slideNo) {
+      // populate the arrays upto slideNo
+      slides.push(slides.length + 1);
+      avgAttention.push(0);
+      totalCaptures.push(0);
+    }
+
+    avgAttention[slideNo - 1] = ((avgAttention[slideNo - 1] * totalCaptures[i]) + resultsYArray) / (totalCaptures[i] + 1);
+    totalCaptures[slideNo - 1]++;
+  }
+
 
   // plot the graph
   var trace = {
@@ -168,12 +194,56 @@ function showResults() {
         showline: false,
         autotick: true,
         showTickLabels: false,
-        range: [0, 5]
+        range: [0, 5.2]
       }
   };
 
   var TESTER = document.getElementById('results');
   Plotly.plot( TESTER, data, layout);
+
+
+  // plot the bar graph
+  var trace1 = {
+    x: slides,
+    y: avgAttention,
+    marker: {color: 'rgb(55, 83, 109)'},
+    type: 'bar'
+  };
+
+  var data = [trace1];
+
+  var layout = {
+    title: 'Average Attention Variance per slide',
+    xaxis: {
+      title: 'Slide',
+      tickfont: {
+        size: 14,
+        color: 'rgb(107, 107, 107)'
+      }},
+    yaxis: {
+      title: 'Variance ',
+      titlefont: {
+        size: 16,
+        color: 'rgb(107, 107, 107)'
+      },
+      tickfont: {
+        size: 14,
+        color: 'rgb(107, 107, 107)'
+      }
+    },
+    legend: {
+      x: 0,
+      y: 1.0,
+      bgcolor: 'rgba(255, 255, 255, 0)',
+      bordercolor: 'rgba(255, 255, 255, 0)'
+    },
+    barmode: 'group',
+    bargap: 0.15,
+    bargroupgap: 0.1
+  };
+  
+  Plotly.newPlot('resultsBar', data, layout);
+
 
     $('#myModalHorizontal2').modal('show');
   // document.getElementById('myModalHorizontal2').modal('show');
