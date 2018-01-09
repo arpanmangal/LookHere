@@ -172,14 +172,9 @@ function showResults() {
       }
   };
 
-<<<<<<< HEAD
-  var RESULTS = document.getElementById('results');
-  Plotly.plot( RESULTS, data, layout);
-=======
   var TESTER = document.getElementById('results');
   Plotly.plot( TESTER, data, layout);
 
     $('#myModalHorizontal2').modal('show');
   // document.getElementById('myModalHorizontal2').modal('show');
->>>>>>> 9549e0e795a537bb748a636d0a258b40e87d26ea
 }
