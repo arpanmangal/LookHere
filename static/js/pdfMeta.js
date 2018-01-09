@@ -1,6 +1,11 @@
 var pdfDoc;
 var scale;
 $('#startSession').click(function(){
+if (mode=='video'){
+    console.log( $('#videosrc').val());
+    changeVideoSource($('#videosrc').val());
+    return;
+} 
 pageNum = 1;
 pageRendering = false;
 pageNumPending = null;

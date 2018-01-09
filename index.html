@@ -20,7 +20,7 @@
                 and for MOOC videos(individual tracking), select video option. </b>
             </h4>
             <br>
-             <select id="mode">
+             <select id="mode" onchange="showDiv(this)">
                 <option value="pdf" class="bolden"> PDF </option>
                 <option value="video" class="bolden"> Video </option>
             </select>
@@ -112,9 +112,24 @@
 <script type="text/javascript">
     // $(window).load(function() {
     // $('#wholeContainer').hide();
+    var mode='pdf';;
     $('#myModalHorizontal').modal('show');
-
-    // });
+    document.getElementById('videosrc').style.display='none';
+    function showDiv(elem){
+    //console.log(elem.value);
+    mode=elem.value;
+     if(elem.value == 'pdf'){
+        document.getElementById('inputFile').style.display='block';
+        document.getElementById('videosrc').style.display='none';
+        // console.log("pdf");
+    } 
+    else {
+        document.getElementById('inputFile').style.display='none';
+        document.getElementById('videosrc').style.display='block';
+        // console.log("video");
+    }
+        
+    };
 </script>
 </body>
 </html>

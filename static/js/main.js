@@ -23,6 +23,7 @@
     var photo = null;
     var para=null;
     var startButton = null;
+    var mode=null;
 
 
 // Disable workers to avoid yet another cross-origin issue (workers need
@@ -179,6 +180,7 @@ var data;
 
     function getMeta(){
         //returns a promise to return topic and pageNum
+        if(mode=='video') return;
         return pdfDoc.getPage(pageNum).then(function(page) {
             return page.getTextContent().then(function(textContent) {
                 //alert( "Topic: "+textContent.items[0].str+", Page: "+ String(pageNum))
