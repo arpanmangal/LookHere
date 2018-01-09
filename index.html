@@ -13,10 +13,20 @@
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div id="dialogBox" class="modal-dialog">
         <div id="contenting" class="modal-content">
-            <h4 class="modal-title">Project Demo</h4>
+            <h4 class="modal-title"> <b>Hi! This is a demo of how our app can help you track the attention levels
+                <br>
+                 of your audience. For presentations (group tracking), select pdf option, 
+                <br>
+                and for MOOC videos(individual tracking), select video option. </b>
+            </h4>
             <br>
-            <label for="inputFile">Select Pdf File to view</label>
+             <select id="mode">
+                <option value="pdf" class="bolden"> PDF </option>
+                <option value="video" class="bolden"> Video </option>
+            </select>
+            <br> 
             <input type="file" class="form-control" id="inputFile" placeholder="file"/>
+            <input type="text" class="form-control" id="videosrc"/>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="startSession" data-dismiss="modal">
                     Start Session
