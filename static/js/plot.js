@@ -44,14 +44,14 @@ function plot(Xdata, Ydata, Descrip) {
 
     DescripArray.push(Descrip);
     completeDescripArray.push(Descrip);
-    if (DescripArray.length > 20) DescripArray.shift();
+    
 
 
     console.log(Xdata, Ydata, Descrip);
     // Usage: pass a SINGLE Xdata, Ydata, Descrip
     XArray.push(Xdata);
     completeXArray.push(Xdata);
-    if (XArray.length > 20) XArray.shift(); // remove first entry
+    
     if (XmaxValue < Xdata) XmaxValue = Xdata;
     console.log(XmaxValue);
 
@@ -69,8 +69,12 @@ function plot(Xdata, Ydata, Descrip) {
       DescripArray.shift();
     }
     
-    if (YArray.length > 20) YArray.shift();
 
+    if (XArray.length > 10 && XArray[XArray.length - 1] - XArray[0] > 30) {
+      XArray.shift(); // remove first entry
+      DescripArray.shift();
+      YArray.shift();
+    }
     
     var trace = {
         x: XArray,
@@ -80,7 +84,7 @@ function plot(Xdata, Ydata, Descrip) {
         text: DescripArray,//['United States', 'Canada'],
         marker: {
           color: 'rgb(164, 194, 244)',
-          size: 12,
+          size: 7,
           line: {
             color: 'white',
             width: 0.5
@@ -100,7 +104,6 @@ function plot(Xdata, Ydata, Descrip) {
           title: XLabel,
           showgrid: false,
           zeroline: false,
-          range: [XmaxValue-100, XmaxValue]
         },
         yaxis: {
           title: 'Variation',
@@ -112,7 +115,7 @@ function plot(Xdata, Ydata, Descrip) {
     };
       
     var TESTER = document.getElementById('graph');
-    if (XArray.length > 5) Plotly.newPlot( TESTER, data, layout);
+    if (XArray.length > 5) Plotly.plot( TESTER, data, layout);
 }
 
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
@@ -123,7 +126,7 @@ function showResults() {
   // Use this function at the end to display all the results, like overall graph, data etc.
   // Make a div called 'results' in your html where you want to see the resultant graph
   // change the name if you want to call it something else
-data=false;
+  requestAPI=false;
   var resultsYArray = [],
       resultsXArray = [],
       resultsDesArray = [];
@@ -168,7 +171,7 @@ data=false;
     text: completeDescripArray,//['United States', 'Canada'],
     marker: {
       color: 'rgb(164, 194, 244)',
-      size: 12,
+      size: 7,
       line: {
         color: 'white',
         width: 0.5
@@ -199,7 +202,7 @@ data=false;
   };
 
   var TESTER = document.getElementById('results');
-  Plotly.newPlot( TESTER, data, layout);
+  Plotly.plot( TESTER, data, layout);
 
 
   // plot the bar graph
