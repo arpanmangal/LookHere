@@ -38,8 +38,9 @@
  * @param num Page number.
  */
     
-
+var data;
     function startup() {
+        data=true;
     $('#wholeContainer').show();
     video = document.getElementById('video');
         canvas = document.getElementById('canvas');
@@ -157,8 +158,13 @@
     // once loading is complete.
     document.getElementById("startSession").addEventListener('click', startup, false);
     document.getElementById("stopSession").addEventListener('click',showResults,false)
+    document.getElementById("dismissButton").addEventListener('click',dismissFunction,false)
     // Functions from detectFaces.html
-    
+
+    function dismissFunction() {
+        data=true;
+    }
+
     function openFile(file) {
         var input = file.target;
 

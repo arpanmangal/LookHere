@@ -123,7 +123,7 @@ function showResults() {
   // Use this function at the end to display all the results, like overall graph, data etc.
   // Make a div called 'results' in your html where you want to see the resultant graph
   // change the name if you want to call it something else
-
+data=false;
   var resultsYArray = [],
       resultsXArray = [],
       resultsDesArray = [];
