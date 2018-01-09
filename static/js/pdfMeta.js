@@ -1,5 +1,5 @@
 var pdfDoc;
-
+var scale;
 $('#startSession').click(function(){
 pageNum = 1;
 pageRendering = false;
@@ -59,6 +59,8 @@ readFileAsArrayBuffer(pdfFile, function(data) {
 
 document.getElementById('prev').addEventListener('click', onPrevPage);
 document.getElementById('next').addEventListener('click', onNextPage);
+document.getElementById('zoomIn').addEventListener('click', zoomIn);
+document.getElementById('zoomOut').addEventListener('click', zoomOut);
 
     
 
@@ -108,7 +110,8 @@ function queueRenderPage(num) {
 /**
  * Displays previous page.
  */
-function onPrevPage() {
+function onPrevPage(e) {
+    e.preventDefault();
   if (pageNum <= 1) {
     return;
   }
@@ -120,12 +123,35 @@ function onPrevPage() {
 /**
  * Displays next page.
  */
-function onNextPage() {
+function onNextPage(e) {
+    e.preventDefault();
   if (pageNum >= pdfDoc.numPages) {
     return;
   }
   pageNum++;
   queueRenderPage(pageNum);
+}
+
+function zoomIn(e) {
+    e.preventDefault();
+    // var original=$('#pdfDiv').css("width");
+    var original=$('#pdfDiv').width();
+    $( "#pdfDiv" ).animate({
+        width: 1.05*original
+    }, 700 );
+    // $('#pdfDiv').width(1.1*original);
+    // console.log(original);
+    // console.log(original.type);
+    // scale+=0.1
+}
+
+function zoomOut(e) {
+    e.preventDefault();
+    var original=$('#pdfDiv').width();
+    $( "#pdfDiv" ).animate({
+        width: 0.95*original
+    }, 700 );
+    // scale-=0.1
 }
 // document.getElementById('next').addEventListener('click', onNextPage);
 

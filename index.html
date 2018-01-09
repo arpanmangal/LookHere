@@ -5,6 +5,8 @@
     <title>Look Here</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/styles.css" type="text/css" media="all">
+
+
 </head>
 <body>
 <div class="modal fade in" id="myModalHorizontal"  role="dialog"
@@ -23,6 +25,7 @@
         </div>
     </div>
 </div>
+
 
 
 <div class="modal fade in" id="myModalHorizontal2"  role="dialog"
@@ -67,13 +70,15 @@
         </div>
         <div class="col-md-8 customCol">
             <div id="pdfDiv">
-                <canvas id="the-canvas"></canvas>
-                <br/>
                 <a href="#" id="prev" class="previous round">&#8249</a>
                 <a href="#" id="next" class="next round">&#8250;</a>
+                <a href="#" id="zoomIn" class="standard round">+</a>
+                <a href="#" id="zoomOut" class="standard round">-</a>
                 &nbsp; &nbsp;
                 <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
 
+                <br/>
+                <canvas id="the-canvas"></canvas>
 
             </div>
         </div>
@@ -87,13 +92,15 @@
 <script type="text/javascript" src="static/lib/plotly-latest.min.js"></script>
 <script type="text/javascript" src="static/js/processFace.js"></script>
 <script type="text/javascript" src="static/js/pdfMeta.js"></script>
+
 <script type="text/javascript" src="static/js/plot.js"></script>
 <script type="text/javascript" src="static/js/main.js"></script>
 <script type="text/javascript">
-    $(window).load(function() {
-        $('#myModalHorizontal').modal('show');
-    });
-</script>
+    // $(window).load(function() {
+    // $('#wholeContainer').hide();
+    $('#myModalHorizontal').modal('show');
 
+    // });
+</script>
 </body>
 </html>
