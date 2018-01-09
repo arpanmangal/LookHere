@@ -53,7 +53,8 @@ var data;
         navigator.getMedia = ( navigator.getUserMedia ||
             navigator.webkitGetUserMedia ||
             navigator.mozGetUserMedia ||
-            navigator.msGetUserMedia);
+            navigator.msGetUserMedia ||
+            navigator.MediaDevices.getUserMedia );
 
         navigator.getMedia(
             {
