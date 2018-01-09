@@ -73,6 +73,11 @@ var data;
                 video.play();
             },
             function(err) {
+                if (err == 'NotAllowedError: The request is not allowed by the user agent or the platform in the current context.') {
+                    alert("You need to permit webcam to take video in order to generate the statistics.\n You are advised to refresh if you want to see the statistics.");
+                } else {
+                    alert("Some error occured while taking video from your webcam.");
+                }
                 console.log("An error occurred! " + err);
             }
         );
@@ -87,7 +92,6 @@ var data;
                 if (isNaN(height)) {
                     height = width / (4/3);
                 }
-
                 video.setAttribute('width', width);
                 video.setAttribute('height', height);
                 canvas.setAttribute('width', width);

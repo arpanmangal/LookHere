@@ -21,6 +21,12 @@ var pdfFile=files[0];
 console.log(files);
 console.log(pdfFile);
 
+if (pdfFile == undefined || pdfFile == null) {
+    // user has not uploaded a file or some error has occured.
+    alert("Could not read the pdf file provided.\n" + 
+            "Please upload a correct pdf file to make use of the webapp.");
+}
+
 function readFileAsArrayBuffer(file, success, error) {
     var fr = new FileReader();
     fr.addEventListener('error', error, false);
