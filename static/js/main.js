@@ -163,6 +163,15 @@ var data;
         var clickMarker=new Date();
         return (clickMarker.getTime() - startTime) / 1000 ;
     }
+    function getCleanTimeStamp(){
+        var x=getTimeStamp();
+        var ans;
+        x=parseInt(x);
+        if(x<60) ans=String(x% 60)+"s";
+        else ans=String(parseInt(x/60))+"m " + String(x%60) +"s";
+        console.log(ans);
+        return ans;
+    }
 
     // Set up our event listener to run the startup process
     // once loading is complete.
@@ -189,8 +198,8 @@ var data;
     function getMeta(){
         //returns a promise to return topic and pageNum
         if(mode=='video') {
-            return new Promise(()=> {
-                return {};
+            return new Promise((resolve,reject)=> {
+                resolve( {} );
             }) ;
         }
         return pdfDoc.getPage(pageNum).then(function(page) {
@@ -218,7 +227,8 @@ var data;
                 metaData.page='';
                 metaData.topic=''
             }
-            description="Slide "+metaData.page+" ("+metaData.topic+") ";
+            if (mode=='pdf') description="Slide "+metaData.page+" ("+metaData.topic+") ";
+            else description=getCleanTimeStamp();
             console.log(description);
             processFaces(file, getTimeStamp(), description,function(obj) {
                 console.log(obj);
