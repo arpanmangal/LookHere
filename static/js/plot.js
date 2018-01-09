@@ -12,6 +12,8 @@
 // 5. finish -> whole graph + descrip; ===> done
 // 6. cap y, show bar graph of average attention per slide, change range to 5 ===> Done, debugging left
 // 7. Do something about Xrange
+// 8. slide no
+// 9. video timestamp
 
 console.log('hi');
 
@@ -126,6 +128,8 @@ function showResults() {
   // Use this function at the end to display all the results, like overall graph, data etc.
   // Make a div called 'results' in your html where you want to see the resultant graph
   // change the name if you want to call it something else
+  console.log('hi');
+
   requestAPI=false;
   var resultsYArray = [],
       resultsXArray = [],
@@ -142,26 +146,34 @@ function showResults() {
     resultsYArray.push(Yvar);
   }
 
-
+  console.log('hello', resultsDesArray.length, resultsYArray.length);
   // variables to store information about slides, 6 is the slide no.
   var slides = [],
   totalCaptures = [],
   avgAttention = [];
 
-  for (let i = 0; i < resultsDesArray.length; i++) {
-    let slideNo = parseInt(resultsDesArray[i].charAt(6));
-    while (slides.length < slideNo) {
+  for (var i = 0; i < resultsDesArray.length; i++) {
+    // var slideNo = parseInt(resultsDesArray[i].charAt(6));
+    var splt = resultsDesArray[i].split(" ");
+    var slideNo = parseInt(splt[1]);
+    console.log('heya',slideNo);
+    while (slides.length <= slideNo) {
       // populate the arrays upto slideNo
-      slides.push(slides.length + 1);
+      slides.push(String(slides.length + 1));
       avgAttention.push(0);
       totalCaptures.push(0);
     }
 
-    avgAttention[slideNo - 1] = ((avgAttention[slideNo - 1] * totalCaptures[i]) + resultsYArray) / (totalCaptures[i] + 1);
+    avgAttention[slideNo - 1] = ((avgAttention[slideNo - 1] * totalCaptures[slideNo - 1]) + resultsYArray[i]) / (totalCaptures[slideNo - 1] + 1);
     totalCaptures[slideNo - 1]++;
   }
 
+  console.log('ui', resultsDesArray.length, avgAttention, totalCaptures);
 
+  // invert the avg array
+  for (let i = 0; i < avgAttention.length; i++) {
+    avgAttention[i] = 1 / (1 + avgAttention[i]);
+  }
   // plot the graph
   var trace = {
     x: completeXArray,
@@ -205,6 +217,7 @@ function showResults() {
   Plotly.plot( TESTER, data, layout);
 
 
+  console.log(slides, avgAttention);
   // plot the bar graph
   var trace1 = {
     x: slides,
@@ -216,7 +229,7 @@ function showResults() {
   var data = [trace1];
 
   var layout = {
-    title: 'Average Attention Variance per slide',
+    title: 'Average Attention per slide',
     xaxis: {
       title: 'Slide',
       tickfont: {
@@ -224,7 +237,7 @@ function showResults() {
         color: 'rgb(107, 107, 107)'
       }},
     yaxis: {
-      title: 'Variance ',
+      title: 'Attention Level',
       titlefont: {
         size: 16,
         color: 'rgb(107, 107, 107)'
