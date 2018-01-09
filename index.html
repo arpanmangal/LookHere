@@ -20,13 +20,14 @@
                 and for MOOC videos(individual tracking), select video option. </b>
             </h4>
             <br>
-             <select id="mode" onchange="showDiv(this)">
+            <label for="mode">Input Type</label><select id="mode" onchange="showDiv(this)">
                 <option value="pdf" class="bolden"> PDF </option>
                 <option value="video" class="bolden"> Video </option>
             </select>
             <br> 
             <input type="file" class="form-control" id="inputFile" placeholder="file"/>
-            <input type="text" class="form-control" id="videosrc"/>
+            <!--<label for="videosrc">Video Source</label>-->
+            <input type="text" class="form-control" placeholder="Enter Video Embed Code Here" id="videosrc"/>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="startSession" data-dismiss="modal">
                     Start Session
