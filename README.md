@@ -12,9 +12,15 @@ This is an App which is used for checking the attention levels of your audience.
 This app measures the attention levels of students as a function of time using Microsoft Face API. It plots a graph of variation of attention with time. On completion of your presentation it will also provide you with an in-depth analysis of your class stats which include the complete variance-time graph and a attention level graph over the slide depicting the rise and fall of attention levels during different slides.
 
 <br /><br />
-# How to Use -
-1. Refer to [this](www.google.com) YouTube Video for reference.
-2. 
+## How to Use -
+1. Refer to [this](https://www.youtube.com/watch?v=NRfxfM6vLCY) YouTube Video for reference.
+2. Open one of the links to the website above.
+3. Select your mode of operation. Either choose a pdf file or embed a video (see the reference video for details).
+4. Allow your webcam to take video. This will take real-time data of your face and attention levels.
+5. This data will be plotted as a real-time plot and will be available to the user to see.
+6. Change slides using the arrow buttons and zoom using '+' and '-' buttons.
+7. When done with the presentation / video lecture click on 'stop observation'.
+8. A new graph will load showing the complete graph as well as a slide wise analysis of attention levels.
 
 ------------------------------------------------------------------------
 ## TODO -
@@ -32,5 +38,5 @@ This app measures the attention levels of students as a function of time using M
 -----------------------------------------------------------------------------------------
 
 
-Note:- Has been tested on Firefox and Chrome. (Edge ??)
+Note:- Has been tested on Firefox and Chrome.
 
