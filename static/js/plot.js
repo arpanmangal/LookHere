@@ -218,6 +218,10 @@ function showResults() {
 
 
   console.log(slides, avgAttention);
+  if(mode=='video') {
+    $('#myModalHorizontal2').modal('show');
+    return;
+  }
   // plot the bar graph
   var trace1 = {
     x: slides,
