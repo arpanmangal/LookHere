@@ -157,7 +157,7 @@ function showResults() {
     var splt = resultsDesArray[i].split(" ");
     var slideNo = parseInt(splt[1]);
     console.log('heya',slideNo);
-    while (slides.length <= slideNo) {
+    while (slides.length < slideNo) {
       // populate the arrays upto slideNo
       slides.push(String(slides.length + 1));
       avgAttention.push(0);
@@ -174,13 +174,14 @@ function showResults() {
   for (let i = 0; i < avgAttention.length; i++) {
     avgAttention[i] = 1 / (1 + avgAttention[i]);
   }
+  console.log("done inv")
   // plot the graph
   var trace = {
-    x: completeXArray,
-    y: completeYArray,
+    x: resultsXArray,
+    y: resultsYArray,
     mode: 'lines+markers',
     // name: 'You',
-    text: completeDescripArray,//['United States', 'Canada'],
+    text: resultsDesArray,//['United States', 'Canada'],
     marker: {
       color: 'rgb(164, 194, 244)',
       size: 7,
@@ -192,7 +193,7 @@ function showResults() {
     type: 'scatter',
     hoverinfo: 'text'
   };
-
+  console.log('defined trace')
   var data = [trace];
 
   var layout = {
@@ -212,10 +213,10 @@ function showResults() {
         range: [0, 10.2]
       }
   };
-
+  console.log('done layout')
   var TESTER = document.getElementById('results');
   Plotly.plot( TESTER, data, layout);
-
+  console.log('finally plotted')
 
   // console.log(slides, avgAttention);
   if(mode=='video') {
