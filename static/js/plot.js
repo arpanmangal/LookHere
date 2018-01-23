@@ -41,7 +41,7 @@ var XmaxValue = -100;
 
 function plot(Xdata, Ydata, Descrip) {
     // cap Ydata
-    if (Ydata > 5) Ydata = 5;
+    if (Ydata > 50) Ydata = 50;
 
 
     DescripArray.push(Descrip);
@@ -49,13 +49,13 @@ function plot(Xdata, Ydata, Descrip) {
     
 
 
-    console.log(Xdata, Ydata, Descrip);
+    // console.log(Xdata, Ydata, Descrip);
     // Usage: pass a SINGLE Xdata, Ydata, Descrip
     XArray.push(Xdata);
     completeXArray.push(Xdata);
     
     if (XmaxValue < Xdata) XmaxValue = Xdata;
-    console.log(XmaxValue);
+    // console.log(XmaxValue);
 
     
     completeYArray.push(Ydata);
@@ -112,7 +112,7 @@ function plot(Xdata, Ydata, Descrip) {
           showline: false,
           autotick: true,
           showTickLabels: false,
-          range: [0, 5.2]
+          range: [0, 10.2]
         }
     };
       
@@ -209,7 +209,7 @@ function showResults() {
         showline: false,
         autotick: true,
         showTickLabels: false,
-        range: [0, 5.2]
+        range: [0, 10.2]
       }
   };
 
@@ -217,7 +217,7 @@ function showResults() {
   Plotly.plot( TESTER, data, layout);
 
 
-  console.log(slides, avgAttention);
+  // console.log(slides, avgAttention);
   if(mode=='video') {
     $('#myModalHorizontal2').modal('show');
     return;
