@@ -51,36 +51,21 @@ var requestAPI = false;
 
 
         //alert("hi");
-        navigator.getMedia = ( navigator.getUserMedia ||
-            navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia ||
-            navigator.msGetUserMedia ||
-            navigator.MediaDevices.getUserMedia );
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
-        navigator.getMedia(
-            {
-                video: true,
-                audio: false
-            },
-            function(stream) {
-                console.log(stream);
-                if (navigator.mozGetUserMedia) {
-                    video.mozSrcObject = stream;
-                } else {
-                    var vendorURL = window.URL || window.webkitURL;
-                    video.src = vendorURL.createObjectURL(stream);
-                }
-                video.play();
-            },
-            function(err) {
-                if (err == 'NotAllowedError: The request is not allowed by the user agent or the platform in the current context.') {
-                    alert("You need to permit webcam to take video in order to generate the statistics.\n You are advised to refresh if you want to see the statistics.");
-                } else {
-                    alert("Some error occured while taking video from your webcam.");
-                }
-                console.log("An error occurred! " + err);
-            }
-        );
+        if (navigator.getUserMedia) {
+            navigator.getUserMedia({
+                video: true
+            }, handleVideo, videoError);
+        }
+
+        function handleVideo(stream) {
+            video.src = window.URL.createObjectURL(stream);
+        }
+
+        function videoError(e) {
+            // do something
+        }
 
         video.addEventListener('canplay', function(){
             if (!streaming) {
