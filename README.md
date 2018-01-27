@@ -3,7 +3,6 @@
 App for code.fun.do
 
 Deployed Here :- 
-- [Azure Website](https://lookhere.azurewebsites.net/)
 - [GitHub Pages](https://arpanmangal.github.io/LookHere/)
 
 -----------------------------------------------------------------------
