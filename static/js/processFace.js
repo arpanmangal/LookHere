@@ -29,7 +29,7 @@ function makeblob (dataURL) {
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
-        console.log("Sending image to face api");
+        // console.log("Sending image to face api");
         // Replace the subscriptionKey string value with your valid subscription key.
         var subscriptionKey = "ec21e11600704233a7cdb295a37249b6";
 
@@ -46,7 +46,7 @@ function makeblob (dataURL) {
         // Request parameters.
         var params = {
             "returnFaceId": "true",
-            "returnFaceLandmarks": "false",
+            "returnFaceLandmarks": "true",
             "returnFaceAttributes": "headPose"
         };
 

@@ -41,7 +41,7 @@ var XmaxValue = -100;
 
 function plot(Xdata, Ydata, Descrip) {
     // cap Ydata
-    if (Ydata > 5) Ydata = 5;
+    if (Ydata > 50) Ydata = 50;
 
 
     DescripArray.push(Descrip);
@@ -49,13 +49,13 @@ function plot(Xdata, Ydata, Descrip) {
     
 
 
-    console.log(Xdata, Ydata, Descrip);
+    // console.log(Xdata, Ydata, Descrip);
     // Usage: pass a SINGLE Xdata, Ydata, Descrip
     XArray.push(Xdata);
     completeXArray.push(Xdata);
     
     if (XmaxValue < Xdata) XmaxValue = Xdata;
-    console.log(XmaxValue);
+    // console.log(XmaxValue);
 
     
     completeYArray.push(Ydata);
@@ -112,7 +112,7 @@ function plot(Xdata, Ydata, Descrip) {
           showline: false,
           autotick: true,
           showTickLabels: false,
-          range: [0, 5.2]
+          range: [0, 10.2]
         }
     };
       
@@ -157,7 +157,7 @@ function showResults() {
     var splt = resultsDesArray[i].split(" ");
     var slideNo = parseInt(splt[1]);
     console.log('heya',slideNo);
-    while (slides.length <= slideNo) {
+    while (slides.length < slideNo) {
       // populate the arrays upto slideNo
       slides.push(String(slides.length + 1));
       avgAttention.push(0);
@@ -174,13 +174,14 @@ function showResults() {
   for (let i = 0; i < avgAttention.length; i++) {
     avgAttention[i] = 1 / (1 + avgAttention[i]);
   }
+  console.log("done inv")
   // plot the graph
   var trace = {
-    x: completeXArray,
-    y: completeYArray,
+    x: resultsXArray,
+    y: resultsYArray,
     mode: 'lines+markers',
     // name: 'You',
-    text: completeDescripArray,//['United States', 'Canada'],
+    text: resultsDesArray,//['United States', 'Canada'],
     marker: {
       color: 'rgb(164, 194, 244)',
       size: 7,
@@ -192,7 +193,7 @@ function showResults() {
     type: 'scatter',
     hoverinfo: 'text'
   };
-
+  console.log('defined trace')
   var data = [trace];
 
   var layout = {
@@ -209,15 +210,15 @@ function showResults() {
         showline: false,
         autotick: true,
         showTickLabels: false,
-        range: [0, 5.2]
+        range: [0, 10.2]
       }
   };
-
+  console.log('done layout')
   var TESTER = document.getElementById('results');
   Plotly.plot( TESTER, data, layout);
+  console.log('finally plotted')
 
-
-  console.log(slides, avgAttention);
+  // console.log(slides, avgAttention);
   if(mode=='video') {
     $('#myModalHorizontal2').modal('show');
     return;

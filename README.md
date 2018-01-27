@@ -39,7 +39,7 @@ This app measures the attention levels of students as a function of time using M
 
 ## TODO (for OnCampus) -
 
-1. Change variation method to eye-coordinates from headPose.
+1. (~~Change variation method to eye-coordinates from headPose.~~)
 2. Take images from mobile camera and use that => Use pre-built app
 3. Plot of video with its timestamp
 4. Option to download the stats and data once observation stops
