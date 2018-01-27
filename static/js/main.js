@@ -272,15 +272,25 @@ var requestAPI = false;
         // pdfDiv.innerHTML='<div class="camera">' +
         //     '<video id="video2" class="videoFeed" src="'+src+'" autoplay="autoplay" controls="controls">Video stream not available.</video>' +
         //     '</div>';
-
-        // pdfDiv.innerHTML='<div class="camera">' +
-        //     '<iframe id="video2" class="videoFeed" src="'+src+'" autoplay="autoplay" controls="controls">Video stream not available.</iframe>' +
-        //     '</div>';
-        pdfDiv.innerHTML=src;
+        var videoId = getId(src);
+         pdfDiv.innerHTML='<div class="camera">' +
+             '<iframe id="video2" class="videoFeed" src="https://www.youtube.com/embed/' 
+            + videoId+ '" autoplay="autoplay" controls="controls">Video stream not available.</iframe>' +
+             '</div>';
+        //pdfDiv.innerHTML=src;
         $('iframe').height('100%');
         $('iframe').width("100%");
-        // video.src=src;
-        // video.play();
-        // vid=document.getElementById('video2');
-        // vid.play();
     }
+    function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+        } 
+    else {
+        return 'error';
+        }
+    }  
+
+    
