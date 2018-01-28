@@ -112,7 +112,7 @@ function plot(Xdata, Ydata, Descrip) {
           showline: false,
           autotick: true,
           showTickLabels: false,
-          range: [0, 10.2]
+          range: [0, 5.2]
         }
     };
       
@@ -210,7 +210,7 @@ function showResults() {
         showline: false,
         autotick: true,
         showTickLabels: false,
-        range: [0, 10.2]
+        range: [0, 5.2]
       }
   };
   console.log('done layout')
